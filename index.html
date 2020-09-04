@@ -25,7 +25,28 @@
 			border-radius: 0.3em;
 			padding: 0 0.2em;
 		}
+		s {
+			display: block;
+			position: absolute;
+			background-color: white;
+		}
 	</style>
+	<script>
+		function makeNewStar () {
+			let s = document.createElement('s');
+			let d = Math.random()*5 + 'px';
+			s.style.top = Math.round(Math.random()*100) + '%';
+			s.style.left = Math.round(Math.random()*100) + '%';
+			s.style.width = d;
+			s.style.height = d;
+			document.body.append(s);
+		}
+		window.onload = function () {
+			for (let i=0; i<128; i++) {
+				makeNewStar();
+			}
+		}
+	</script>
 </head>
 <body>
 	<div class="wrap">
