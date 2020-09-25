@@ -57,14 +57,23 @@
 				let s = document.createElement('s');
 				let d = Math.random() * 3 + 'px';
 				s.style.top = Math.round(Math.random() * (100 / max * i)) + '%';
-				s.style.left = Math.round(Math.random()*100) + '%';
+				s.style.left = Math.round(Math.random() * 100) + '%';
 				s.style.width = d;
 				s.style.height = d;
+				s.style.background = 'rgba(255,255,255,' + (1 - (100 / max * i / 100)) + ')';
 				document.getElementById('space').append(s);
 			}
 		}
 		window.onload = function () {
 			makeNewStar(128);
+			var h = document.getElementsByTagName('h1')[0];
+			h.onclick = function(){
+				let s = document.getElementById('space');
+				while (s.firstChild) {
+					s.removeChild(s.firstChild);
+				}
+				makeNewStar(128);
+			}
 		}
 	</script>
 </head>
