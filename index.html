@@ -49,6 +49,7 @@
 				position: absolute;
 				background-color: white;
 				border-radius: 100%;
+				transition: 0.3s;
 			}
 	</style>
 	<script>
@@ -69,11 +70,25 @@
 			var h = document.getElementsByTagName('h1')[0];
 			h.onclick = function(){
 				let s = document.getElementById('space');
+				let max = s.childElementCount;
+				for (let i=0; i<max; i++) {
+					let d = Math.random() * 3 + 'px';
+					s.children[i].style.top = Math.round(Math.random() * (100 / max * i)) + '%';
+					s.children[i].style.left = Math.round(Math.random() * 100) + '%';
+					s.children[i].style.width = d;
+					s.children[i].style.height = d;
+					s.children[i].style.background = 'rgba(255,255,255,' + (1 - (100 / max * i / 100)) + ')';
+				}
+			}
+			/*
+			h.onclick = function(){
+				let s = document.getElementById('space');
 				while (s.firstChild) {
 					s.removeChild(s.firstChild);
 				}
 				makeNewStar(128);
 			}
+			*/
 		}
 	</script>
 </head>
