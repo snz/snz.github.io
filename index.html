@@ -50,19 +50,19 @@
 			}
 	</style>
 	<script>
-		function makeNewStar () {
-			let s = document.createElement('s');
-			let d = Math.random()*3 + 'px';
-			s.style.top = Math.round(Math.random()*100) + '%';
-			s.style.left = Math.round(Math.random()*100) + '%';
-			s.style.width = d;
-			s.style.height = d;
-			document.getElementById('space').append(s);
+		function makeNewStar (max) {
+			for (let i=0; i<max; i++) {
+				let s = document.createElement('s');
+				let d = Math.random() * 3 + 'px';
+				s.style.top = Math.round(Math.random() * (100 / max * i)) + '%';
+				s.style.left = Math.round(Math.random()*100) + '%';
+				s.style.width = d;
+				s.style.height = d;
+				document.getElementById('space').append(s);
+			}
 		}
 		window.onload = function () {
-			for (let i=0; i<128; i++) {
-				makeNewStar();
-			}
+			makeNewStar(128);
 		}
 	</script>
 </head>
